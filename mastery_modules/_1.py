@@ -2,8 +2,8 @@ from random import randint, choice
 
 questions = {
     'references_and_keywords': {
-        'question_with_0':'Which phrase or word goes with the following reference: PLACEHOLDER?',
-        'question_with_1':'Which reference matches this phrase: "PLACEHOLDER"?',
+        'question_with_0':'Which phrase or word goes with the following reference: PLACEHOLDER',
+        'question_with_1':'Which reference matches this phrase: "PLACEHOLDER"',
         'type':['new_pairs'],
         'course_code':'',
         'pairs':(
