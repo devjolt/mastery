@@ -99,7 +99,7 @@
         <details>
             <summary>Report a problem with this question</summary>
             <br>
-            <form action="/cismp/log_problem/" method="POST">
+            <form action="/mastery/log_problem/" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="url" value={{url}}>
                 <input type="hidden" name="module" value="{{module}}">

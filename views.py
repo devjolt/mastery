@@ -19,8 +19,6 @@ from .mastery_modules import _1, _2, _3, _4
 import question_logic as utl # doesn't exist yet
 from question_logic.all import * # doesn't exist yet
 
-logging.basicConfig(filename='mastery_question_logger.log', encoding='utf-8', level=logging.ERROR)
-logging.disable(logging.INFO)
 
 def populate_question_logic_dict()->dict:
     """ Used by generate_template_question_and_items(module, key)
@@ -171,7 +169,7 @@ def make_logger(logger_name, logging_filename):
     logger = logging.getLogger(logger_name) # custom logger
     handler = logging.FileHandler(logging_filename) # handler
     handler.setLevel(logging.ERROR)
-    custom_format = logging.Formatter('%(asctime)s - %(message)s') # formatting
+    custom_format = logging.Formatter('%(asctime)s - %(name)s - %(message)s') # formatting
     handler.setFormatter(custom_format)
     logger.addHandler(handler) # add formatting to handler
     return logger

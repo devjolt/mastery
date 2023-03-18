@@ -5,5 +5,6 @@ from .views import HomeView, RandomModuleView, log_problem
 
 urlpatterns = [
     path('', HomeView.as_view(), name='mastery_home'),
-    path('/all_nt/', RandomModuleView.as_view(modules = (_1,)), name = 'all_nt'),
+    path('new_testament/', RandomModuleView.as_view(modules = (_1,)), name = 'new_testament'),
+    path('log_problem/', log_problem, name = 'mastery_log_problem'),
 ] 
