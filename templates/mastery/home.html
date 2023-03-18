@@ -1,0 +1,37 @@
+{% extends 'mastery/base.html' %}
+
+{% block content %}
+<div class='home-inner'>
+    <div class =  'introduction'>
+        <div></div>
+        <div>Features:</div>
+        <ul>
+            <li>Unlimited sessions</li>
+            <li>Instant feedback</li>
+            <li>No signup or login</li>
+            <li>Holiness</li>
+        </ul>
+    <strong>Disclaimer:</strong> This resource slaps but it's not endorsed by LDS Seminary and Institutes or anyone else really apart from the Bishopric of the Dudley Hill Ward. And even they're not 100%.
+    </div>
+    </div>
+    <hr>
+    <h3>Select a module (opens in a new tab)</h3>
+
+    <div class = 'module-container'>
+        <a class='module-button' href='/mastery/all_nt'>
+            <div class = 'module active'>New Testament</div>
+        </a>        
+    </div>
+</div>
+
+<!--
+If you pass one level, move up to the next level
+get the level of the current question level, if you pass that level, move up to the next level
+random drill
+move up to the next level
+get to know one scripture
+
+
+-->
+
+{% endblock %}

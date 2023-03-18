@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, intitial-scale=1.0'>
+        <title>Doctrinal Mastery</title>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <style>
+            * {
+                box-sizing: border-box;
+                --first-light:rgb(97, 97, 97);
+                --first-dark:rgb(52, 52, 82);
+                --second-light:rgb(1, 0, 87);
+                --second-dark:rgb(144, 125, 0);
+                --third-light:white;
+            }
+
+            html{    
+                background-color:var(--third-light);
+                font-family: 'Open Sans', sans-serif;
+                color: rgb(97, 97, 97);
+                font-weight: 100;
+                margin:0;
+                padding:0;
+                min-height:100%; 
+            }
+            @media only screen and (max-width: 660px) {
+                html{ 
+                    color:black;
+                    font-weight: 300;
+                }
+            }
+            body{
+                border-radius: 10px;
+                margin:0;
+                padding:0;
+                min-height:100%;
+            }
+            h1{
+                color:var(--second-dark);
+                margin:6vw;
+                margin-top:0.5vw;
+                margin-bottom:0.5vw;
+               
+            }
+            h1:hover{
+                color:rgb(199, 169, 0);
+                margin:6vw;
+                margin-top:0.5vw;
+                margin-bottom:0.5vw;
+                /*animation: neontext 1.5s ease-in-out infinite alternate;*/
+            }
+
+            
+            @keyframes neontext {
+                from {
+                    text-shadow:
+                        0 0 5px rgb(255, 0, 255), /* middle magenta */
+                        0 0 10px rgb(0, 255, 255), /* outer cyan */
+                        0 0 15px rgb(255, 149, 255), /* middle magenta */
+                        0 0 20px rgb(75, 255, 255); /* outer cyan */
+                }
+                to {
+                    text-shadow: 
+                        0 0 7px rgb(255, 85, 255), /* middle magenta */
+                        0 0 12px rgb(139, 255, 255), /* outer cyan */
+                        0 0 17px rgb(255, 0, 255), /* middle magenta */
+                        0 0 25px rgb(0, 255, 255); /* outer cyan */
+                }
+            }
+            
+
+            h3{
+                text-align: left;
+                margin-left:3vw;
+            }
+            a{
+                text-decoration:none;
+                color:rgb(52, 52, 82);
+            }
+            a:hover{
+                color: var(--third-light);
+                transition:0.5s;
+            }
+
+            .header{
+                display: grid;
+                grid-template-columns: auto 80% auto;
+                text-align: center; 
+                height:10vh;
+            }
+            .header-logo{
+                width:min-content;
+                margin: auto;
+            }
+
+            .home-inner{
+                text-align: center;
+                padding-top: 1vh;
+            }  
+
+            .introduction{
+                padding:2%;
+                margin-top:1%;
+                text-align: left;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .introduction-box{
+                width:50%;
+            }
+
+            .main{
+                background-image: linear-gradient(to bottom right, var(--second-light), var(--first-dark));
+                padding:1%;
+            }
+            .main-inner{
+                margin:5vw;
+                margin-top:1vw;
+                background-color:var(--third-light);
+                border-style:solid;
+                border-radius: 10px;  
+                border-color:var(--third-light);           
+            }
+            
+            .module-container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:center;
+                margin:2vw;
+                margin-top:0.5vw;
+                padding:2vw;
+                padding-top:0.5vw;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .module-button{
+            } 
+
+            .module{
+                border-style:solid;
+                border-radius: 10px;
+                border-color: var(--first-light);
+                height:4em;
+                width:16em;
+                padding:10px;
+                margin:4px;
+                vertical-align: middle; 
+                text-align: center; 
+                transition:0.5s;
+            }
+
+            .inactive{
+                background-color: var(--first-light);
+            }
+
+            .active{
+                transition:0.5s;
+                color: var(--third-light);
+                background-image: linear-gradient(to bottom right, var(--second-light) 50%, var(--first-dark) 100%);
+                /*background-image: radial-gradient(circle,  var(--second-light) 70%,  var(--first-dark) 100%);*/
+            }
+            
+            .active:hover{
+                transform: scale(1.1) translate(0%, 3%);
+                color: var(--second-light);
+                background-image: linear-gradient(to bottom right, white, white);
+                box-shadow: 0px 5px 8px 0px var(--first-light);
+                cursor: pointer;   
+                transition:0.5s;
+            }
+
+            .qtop{
+                border-bottom: 1px solid lightgrey;
+                padding:10px;
+            }
+            .stats-grid{
+				display:grid;
+				grid-template-columns: auto 15% 15% 15% 15%  ;
+				height: min-content;
+				text-align: center;
+			}
+
+            @media only screen and (max-width: 660px) {
+                .stats-grid{
+                    display:grid;
+                    grid-template-columns: auto;
+                    height: min-content;
+                    text-align: center;
+                    }
+                }
+
+			.stats-item{
+				margin:0%;
+			}
+			.timer{
+				display:grid;
+				grid-template-columns: auto auto auto;
+				max-width: min-content;
+				margin-left: 45%;
+				font-size: large;
+			}
+
+			/* Row for title and button */
+			.title-button{
+				display:grid;
+				grid-template-columns: auto 40%;
+				height:min-content;
+			}
+			.reset{
+				background-color:var(--first-light);
+				margin-left:auto;
+				margin-right:auto;
+				text-align: center;
+				height:min-content;
+				color: var(--third-light);
+				width: 200px;
+				border-radius: 5px;
+				font-size:1rem;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			.reset:hover{
+				background-color: var(--second-light);
+				transition:200ms;
+			}
+
+            #progressbar-container {
+                background-color: var(--second-light);
+                border-radius: 13px;
+                /* (height of inner div) / 2 + padding */
+                padding: 3px;
+            }
+
+            #progressbar {
+                background-color: white;
+                
+                /* Adjust width with JavaScript */
+                height: 20px;
+                border-radius: 10px;
+                animation: neon1 1.5s ease-in-out infinite alternate;
+            }
+
+            
+            @keyframes neon1 {
+                from {
+                    box-shadow:
+                    0 0 10px 5px #fff,  /* inner white */
+                    0 0 20px 10px rgb(255, 120, 255), /* middle magenta */
+                    0 0 25px 15px rgb(62, 255, 255); /* outer cyan */
+                }
+                to {
+                    box-shadow:
+                    0 0 15px 7.5px #fff,  /* inner white */
+                    0 0 25px 15px rgb(255, 120, 255), /* middle magenta */
+                    0 0 30px 20px rgb(129, 255, 255); /* outer cyan */
+                }
+            }
+            
+            .qbottom{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                color:black;
+                
+            }
+
+            .qleft{
+                background-color: rgb(240, 240, 240);
+                border-right: 0.5px solid lightgrey;
+            }
+            @media only screen and (max-width: 660px) {
+                
+                .qbottom{
+                    display: grid;
+                    grid-template-columns: auto;
+                    color:black;
+                    font-weight: 400;
+                    }
+                
+                .qleft{
+                    background-color: rgb(240, 240, 240);
+                    border: 0.5px solid lightgrey;
+                
+                }
+            }
+
+            .qright{   
+                min-height:65vh;
+            }
+            
+            .help-links{
+                display:none;
+                align-items: bottom;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .multi-item{
+                display: grid;
+                grid-template-columns: 10% auto;             
+                border-bottom: 0.5px solid rgb(221, 221, 221);
+                padding:5px;
+                cursor: pointer;
+                height:min-content;
+            }
+            .dot{
+                margin-left:20px;
+                margin-top:20px;
+                height: 22px;
+                width: 22px;
+                background-color: rgb(221, 221, 221);
+                border-radius: 50%;
+            }
+            .multi-item:hover .dot {
+                background-color: rgb(202, 202, 202);
+                transition: 0.5;
+            }
+            .text{
+                padding:20px;
+            }
+            .code-container{
+                padding:20px;
+            }
+            .button-div{
+            }
+            /*next and question buttons*/
+            
+			.next{
+				background-color:var(--first-light);
+				text-align: center;
+				color: var(--third-light);
+				border-radius: 5px;
+				padding: 5px;
+				font-size:1rem;
+				text-decoration: none;
+				cursor: pointer;
+				margin: 0.5em;
+			}
+			.next:hover{
+				background-color:var(--second-light);
+				transition: 200ms;
+			}
+			.next a{
+				color: var(--third-light);
+				text-decoration: none;
+				cursor: pointer;
+			}
+			.next-question-wrapper{
+				margin-left:auto;
+				margin-right:auto;
+				display:none;
+				margin-bottom:3rem;
+			}
+            .select-item{
+                display: grid;
+                grid-template-columns: 10% auto;             
+                border-bottom: 0.5px solid rgb(221, 221, 221);
+                padding:5px;
+                height:min-content
+            }
+            .c-radius{
+                width: 30px;
+                height: 30px;
+                border-radius: 25px;
+            }
+            .submit-question-wrapper{
+				margin-left:auto;
+				margin-right:auto;
+				margin-bottom:3rem;
+			}
+            .submit{
+				background-color:rgb(23, 79, 184);
+				text-align: center;
+				color: var(--third-light);
+				border-radius: 5px;
+				padding: 5px;
+				font-size:1rem;
+				text-decoration: none;
+				cursor: pointer;
+				margin: 0.5em;
+			}
+            .submit:hover{
+				background-color:rgb(0, 53, 226);
+				transition: 200ms;
+			}
+        </style>
+    </head>
+
+    <body>
+        <a href="/mastery"><h1>Doctrinal Mastery Workout</h1></a>
+        <!--
+        <div class = 'header'>
+            <div class = 'header-logo'>CISMP Practise</div>
+            
+            <div class = 'header-info'>Current Module</div>
+            <div class ='header-right'>Right hand icons</div>
+        </div>
+        -->
+        <div class = 'main'>
+            <div class='main-inner'>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+    bum
+</html>
