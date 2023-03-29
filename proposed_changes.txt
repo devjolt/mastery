@@ -1,0 +1,97 @@
+template:
+
+on page load:
+
+cookie showing progress in different modules:
+Use Django-inputted module flag to access list of cookie awards
+
+one cookie for each module
+"nt_achievements:000000"
+where each 0 is one of the achievements
+
+if cookie doesn't exist, create one as with value set as 000000
+var achievements_array = ['0','0','0','0','0','0']
+
+if cookie does exist:
+var cookie_str = getCookie("nt_achiements")
+var achievements_array = [cookie_str[0],cookie_str[1],cookie_str[2],cookie_str[3],cookie_str[4],cookie_str[5]]
+
+
+make space to show awards
+
+for achievement in achievements_array:
+
+if '1' show achiement using achievement dictionaries
+make and add achievement element
+
+else:
+
+make and add blank space element
+
+all achievement elements should show a hovering description?
+
+
+during questions
+
+1. Display the number of questions out of 20 completed
+2. Progress bar goes up each correct question
+3. Progress bar gets brighter at each change stage (25, 50, 75, 90, 100)
+4. After 20 questions have been answered:
+
+
+check through each condition in dictionary:
+
+for item in dict:'
+
+if low< score <=high
+
+
+make item position in list 1. 
+show reward pop up
+show reward animation display reward
+
+    if item >0:
+
+        add awards for all lower awards apart from 0
+
+
+
+
+
+button to show reward popup
+
+
+
+
+
+look at percentage correct: if above...
+{
+    0:{
+        'low':-1, 'high':0, 
+        'name':'Perfect zero', 'description':'You've got to know what you're doing to be this bad.',
+        'brightness':..., 'icon':Dizzy
+    1:{
+        'low':0, 'high':35, 
+        'name':'Participation', 'description':'For completing at least 20 questions. How close to perfection can you get?',
+        'brightness':..., 'icon':trophy
+    2:{
+        'low':35, 'high':60, 
+        'name':'Telestial', 'description':'35-60% holy.',
+        'brightness':..., 'icon':...
+    },
+    3:{
+        'low':60, 'high':85, 
+        'name':'Terrestrial', 'description':'60-85% holy.',
+        'brightness':..., 'icon':...
+    },
+    4:{
+        'low':85, 'high':99, 
+        'name':'Celestial', 'description':'85-99% holy.',
+        'brightness':..., 'icon':...
+        },
+    5:{
+        'low':99, 'high':100, 
+        'name':'Utter perfection', 'description':'Hoilier than a Swiss Cheese sandwich in the prophet's lunch box on Sunday. Even Bishop Warburton smiles upon you.'
+        'brightness':..., 'icon': OK symbol
+        },
+}
